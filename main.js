@@ -32,6 +32,16 @@ function handleError(err) {
   console.log(err);
 }
 
+function fixURL(url) {
+  if (url.startsWith('ipfs')) {
+    return `https://ipfs.moralis.io:2053/ipfs/${url
+      .split('ipfs://ipfs/')
+      .slice(-1)}`;
+  }
+
+  return `${url}?format=json`;
+}
+
 async function getNFT() {
   const options = {
     chain: 'eth',
@@ -44,23 +54,22 @@ async function getNFT() {
 
   data.forEach((nft) => {
     const uri = nft.token_uri;
-    const html = `
-    <p>${nft.name}</p>
-    <img src="${nft.image}" alt="NFT Image" width="500" height="600"> 
-    `; // need to get this from token uri
-    nftName.insertAdjacentHTML('afterbegin', html);
-    console.log(html);
-    console.log(nft.image);
     fetch(uri)
       .then((res) => res.json())
       .then((dt) => {
         console.log(dt);
-      })
-      .catch(handleError);
+        console.log(dt.name);
+        console.log(dt.image);
+        const html = `
+        <p>${dt.name}</p>
+        <img src="${dt.image}" alt="NFT Image" width="100" height="100">
+        `;
+        nftName.insertAdjacentHTML('afterbegin', html);
+      });
   });
 }
 
-getNFT();
+getNFT().catch(handleError);
 
 document.getElementById('btn-login').onclick = login;
 document.getElementById('btn-logout').onclick = logOut;
