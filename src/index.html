@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>NFT Analytics</title>
+    <link href="/dist/output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+</head>
+
+<body>
+    <h1 class="text-3xl font-bold underline">
+        NFT Analytics
+    </h1>
+
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="btn-login">Login</button>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="btn-logout">Logout</button>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="btn-txn">Get Txns</button>
+    <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+            <tr>
+                <th>from_address</th>
+                <th>to_address</th>
+                <th>token_address</th>
+                <th>token_id</th>
+                <th>contract_type</th>
+                <th>transaction_hash</th>
+                <th>transaction_type</th>
+                <th>value</th>
+            </tr>
+        </thead>
+        <tbody class="txn">
+        </tbody>
+    </table>
+
+    <script type="text/javascript" src="./main.js"></script>
+</body>
+
+</html>
