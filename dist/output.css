@@ -472,8 +472,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: table;
 }
 
-.min-w-full {
-  min-width: 100%;
+.table-auto {
+  table-layout: auto;
 }
 
 .divide-y > :not([hidden]) ~ :not([hidden]) {
@@ -528,6 +528,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .underline {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
+}
+
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .hover\:bg-blue-700:hover {
